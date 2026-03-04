@@ -107,7 +107,7 @@ export const SafetyModule: React.FC = () => {
                         <h1 className="text-4xl font-bold text-[var(--text-main)] tracking-tight">Safety & Incident Response</h1>
                     </div>
                     
-                    <div className="flex gap-2 p-1 bg-[#18181b] rounded border border-white/10">
+                    <div className="flex gap-2 p-1 bg-[var(--bg-card)] rounded border border-white/10">
                          <button 
                             onClick={() => setActiveTab('INCIDENTS')}
                             className={`px-4 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors ${activeTab === 'INCIDENTS' ? 'bg-yellow-600 text-black' : 'text-neutral-500 hover:text-white'}`}
@@ -130,15 +130,15 @@ export const SafetyModule: React.FC = () => {
                         <div className="space-y-6">
                             {/* Stats */}
                             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                                <div className="p-6 bg-[#18181b] border border-emerald-500/30 rounded-sm flex flex-col items-center justify-center">
+                                <div className="p-6 bg-[var(--bg-card)] border border-emerald-500/30 rounded-sm flex flex-col items-center justify-center">
                                     <div className="text-4xl font-bold text-emerald-500 font-mono">42</div>
                                     <div className="text-[10px] font-bold uppercase text-neutral-500 mt-2 tracking-widest">Days Injury Free</div>
                                 </div>
-                                <div className="p-6 bg-[#18181b] border border-white/10 rounded-sm flex flex-col items-center justify-center">
+                                <div className="p-6 bg-[var(--bg-card)] border border-white/10 rounded-sm flex flex-col items-center justify-center">
                                     <div className="text-4xl font-bold text-yellow-500 font-mono">{incidents.filter(i => i.status === 'OPEN').length}</div>
                                     <div className="text-[10px] font-bold uppercase text-neutral-500 mt-2 tracking-widest">Open Investigations</div>
                                 </div>
-                                <div className="p-6 bg-[#18181b] border border-white/10 rounded-sm flex flex-col items-center justify-center col-span-2 relative overflow-hidden group">
+                                <div className="p-6 bg-[var(--bg-card)] border border-white/10 rounded-sm flex flex-col items-center justify-center col-span-2 relative overflow-hidden group">
                                      <button 
                                         onClick={() => setShowModal(true)}
                                         className="relative z-10 px-8 py-3 bg-red-600 hover:bg-red-500 text-white rounded font-bold uppercase tracking-wider shadow-lg transition-transform hover:scale-105 flex items-center gap-2"
@@ -150,12 +150,12 @@ export const SafetyModule: React.FC = () => {
                             </div>
 
                             {/* List */}
-                            <div className="bg-[#18181b] border border-white/10 rounded-sm overflow-hidden">
+                            <div className="bg-[var(--bg-card)] border border-white/10 rounded-sm overflow-hidden">
                                 {isLoading ? (
                                     <div className="p-8 text-center text-neutral-500">Loading Records...</div>
                                 ) : (
                                     <table className="w-full text-left">
-                                        <thead className="bg-[#121212] text-[10px] uppercase font-bold text-neutral-500">
+                                        <thead className="bg-[var(--bg-main)] text-[10px] uppercase font-bold text-neutral-500">
                                             <tr>
                                                 <th className="p-4">ID / Date</th>
                                                 <th className="p-4">Type</th>
@@ -209,7 +209,7 @@ export const SafetyModule: React.FC = () => {
                     {activeTab === 'BRIEFING' && (
                         <div className="flex gap-8 h-full">
                             <div className="w-1/3 space-y-6">
-                                <div className="bg-[#18181b] border border-yellow-500/30 rounded-sm p-6 shadow-2xl">
+                                <div className="bg-[var(--bg-card)] border border-yellow-500/30 rounded-sm p-6 shadow-2xl">
                                     <h2 className="text-sm font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
                                         <Mic2 size={16} className="text-yellow-500"/> Briefing Config
                                     </h2>
@@ -251,7 +251,7 @@ export const SafetyModule: React.FC = () => {
                                 </div>
                             </div>
 
-                            <div className="flex-1 bg-[#18181b] border border-white/10 rounded-sm p-8 relative overflow-hidden">
+                            <div className="flex-1 bg-[var(--bg-card)] border border-white/10 rounded-sm p-8 relative overflow-hidden">
                                 {briefingText ? (
                                     <div className="relative z-10 prose prose-invert max-w-none">
                                         <div className="flex justify-between items-center border-b border-white/10 pb-4 mb-4">
@@ -280,8 +280,8 @@ export const SafetyModule: React.FC = () => {
             {/* NEW INCIDENT MODAL */}
             {showModal && (
                 <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 animate-in fade-in">
-                    <div className="w-full max-w-2xl bg-[#18181b] border border-red-500/50 rounded-sm shadow-[0_0_50px_rgba(220,38,38,0.5)] flex flex-col max-h-[90vh]">
-                        <div className="p-6 border-b border-white/10 bg-[#121212] flex justify-between items-center">
+                    <div className="w-full max-w-2xl bg-[var(--bg-card)] border border-red-500/50 rounded-sm shadow-[0_0_50px_rgba(220,38,38,0.5)] flex flex-col max-h-[90vh]">
+                        <div className="p-6 border-b border-white/10 bg-[var(--bg-main)] flex justify-between items-center">
                             <h2 className="text-xl font-bold text-white flex items-center gap-2">
                                 <AlertOctagon size={24} className="text-red-500"/> Report Incident
                             </h2>
@@ -333,17 +333,17 @@ export const SafetyModule: React.FC = () => {
                                         type="button" 
                                         onClick={handleAnalyze} 
                                         disabled={isAnalyzing || !formDesc}
-                                        className="w-full py-2 bg-indigo-900/50 hover:bg-indigo-900/80 border border-indigo-500/50 rounded text-indigo-200 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors disabled:opacity-50"
+                                        className="w-full py-2 bg-[rgba(0,49,83,0.4)] hover:bg-[rgba(0,49,83,0.6)] border border-[var(--navy)]/50 rounded text-white/70 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors disabled:opacity-50"
                                      >
                                          {isAnalyzing ? <Loader2 size={14} className="animate-spin"/> : <Bot size={14}/>} Analyze Root Cause with AI
                                      </button>
                                  ) : (
-                                     <div className="bg-indigo-500/10 border border-indigo-500/30 rounded p-4">
+                                     <div className="bg-[rgba(0,49,83,0.1)] border border-[var(--navy)]/30 rounded p-4">
                                          <div className="flex justify-between items-center mb-2">
-                                             <div className="text-xs font-bold text-indigo-400 uppercase">AI Analysis Report</div>
+                                             <div className="text-xs font-bold text-[var(--navy)] uppercase">AI Analysis Report</div>
                                              <button type="button" onClick={() => setAiAnalysisResult('')} className="text-[10px] text-neutral-500 hover:text-white">Clear</button>
                                          </div>
-                                         <div className="text-xs text-indigo-100 font-mono whitespace-pre-wrap">{aiAnalysisResult}</div>
+                                         <div className="text-xs text-white/90 font-mono whitespace-pre-wrap">{aiAnalysisResult}</div>
                                      </div>
                                  )}
                              </div>

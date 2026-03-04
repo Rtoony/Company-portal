@@ -48,15 +48,15 @@ export const StandardFormModal: React.FC<StandardFormModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 animate-in fade-in duration-200">
-      <div className="w-full max-w-lg bg-[#18181b] border border-indigo-500/50 rounded-sm shadow-[0_0_50px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden relative">
+      <div className="w-full max-w-lg bg-[var(--bg-card)] border border-[var(--navy)]/50 rounded-sm shadow-[0_0_50px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden relative">
         
         {/* Top Accent */}
-        <div className="h-1 w-full bg-indigo-600"></div>
+        <div className="h-1 w-full bg-[var(--navy)]"></div>
 
         {/* Header */}
-        <div className="p-6 border-b border-white/10 bg-[#121212] flex justify-between items-center">
+        <div className="p-6 border-b border-white/10 bg-[var(--bg-main)] flex justify-between items-center">
           <div>
-            <div className="text-[10px] font-mono font-bold text-indigo-500 uppercase tracking-widest mb-1">
+            <div className="text-[10px] font-mono font-bold text-[var(--navy)] uppercase tracking-widest mb-1">
               System Entry Terminal
             </div>
             <h2 className="text-xl font-bold text-white flex items-center gap-2">
@@ -89,7 +89,7 @@ export const StandardFormModal: React.FC<StandardFormModalProps> = ({
                 <select 
                    value={formData.subCategory}
                    onChange={(e) => setFormData({...formData, subCategory: e.target.value})}
-                   className="w-full p-2.5 bg-[#09090b] border border-white/10 rounded text-sm text-white focus:border-indigo-500 focus:outline-none transition-colors cursor-pointer"
+                   className="w-full p-2.5 bg-[var(--bg-main)] border border-white/10 rounded text-sm text-white focus:border-[var(--navy)] focus:outline-none transition-colors cursor-pointer"
                 >
                    {SUB_CATEGORIES[category].filter(sc => sc !== 'ALL').map(sc => (
                       <option key={sc} value={sc}>{sc}</option>
@@ -108,7 +108,7 @@ export const StandardFormModal: React.FC<StandardFormModalProps> = ({
                 value={formData.title}
                 onChange={(e) => setFormData({...formData, title: e.target.value})}
                 placeholder="e.g. Manhole - Storm - 48 inch"
-                className={`w-full p-3 bg-[#09090b] border rounded text-sm text-white focus:outline-none transition-colors font-medium ${errors.title ? 'border-red-500 focus:border-red-500' : 'border-white/10 focus:border-indigo-500'}`}
+                className={`w-full p-3 bg-[var(--bg-main)] border rounded text-sm text-white focus:outline-none transition-colors font-medium ${errors.title ? 'border-red-500 focus:border-red-500' : 'border-white/10 focus:border-[var(--navy)]'}`}
              />
              {errors.title && <span className="text-xs text-red-500 flex items-center gap-1"><AlertCircle size={10}/> {errors.title}</span>}
           </div>
@@ -123,7 +123,7 @@ export const StandardFormModal: React.FC<StandardFormModalProps> = ({
                 value={formData.filename}
                 onChange={(e) => setFormData({...formData, filename: e.target.value})}
                 placeholder="e.g. STRM-MH-48.dwg"
-                className={`w-full p-3 bg-[#09090b] border rounded text-sm text-white focus:outline-none transition-colors font-mono ${errors.filename ? 'border-red-500 focus:border-red-500' : 'border-white/10 focus:border-indigo-500'}`}
+                className={`w-full p-3 bg-[var(--bg-main)] border rounded text-sm text-white focus:outline-none transition-colors font-mono ${errors.filename ? 'border-red-500 focus:border-red-500' : 'border-white/10 focus:border-[var(--navy)]'}`}
              />
              {errors.filename && <span className="text-xs text-red-500 flex items-center gap-1"><AlertCircle size={10}/> {errors.filename}</span>}
           </div>
@@ -138,7 +138,7 @@ export const StandardFormModal: React.FC<StandardFormModalProps> = ({
                 value={formData.description}
                 onChange={(e) => setFormData({...formData, description: e.target.value})}
                 placeholder="Describe usage, constraints, and applicable standards..."
-                className={`w-full p-3 bg-[#09090b] border rounded text-sm text-white focus:outline-none transition-colors leading-relaxed resize-none custom-scrollbar ${errors.description ? 'border-red-500 focus:border-red-500' : 'border-white/10 focus:border-indigo-500'}`}
+                className={`w-full p-3 bg-[var(--bg-main)] border rounded text-sm text-white focus:outline-none transition-colors leading-relaxed resize-none custom-scrollbar ${errors.description ? 'border-red-500 focus:border-red-500' : 'border-white/10 focus:border-[var(--navy)]'}`}
              />
              {errors.description && <span className="text-xs text-red-500 flex items-center gap-1"><AlertCircle size={10}/> {errors.description}</span>}
           </div>
@@ -146,7 +146,7 @@ export const StandardFormModal: React.FC<StandardFormModalProps> = ({
         </form>
 
         {/* Footer Actions */}
-        <div className="p-6 bg-[#121212] border-t border-white/10 flex justify-end gap-3">
+        <div className="p-6 bg-[var(--bg-main)] border-t border-white/10 flex justify-end gap-3">
            <button 
               onClick={onClose}
               className="px-4 py-2 rounded border border-white/10 text-neutral-400 hover:text-white hover:bg-white/5 transition-colors text-xs font-bold uppercase tracking-wider"
@@ -155,7 +155,7 @@ export const StandardFormModal: React.FC<StandardFormModalProps> = ({
            </button>
            <button 
               onClick={handleSubmit}
-              className="px-6 py-2 rounded bg-indigo-600 hover:bg-indigo-500 text-white transition-colors text-xs font-bold uppercase tracking-wider shadow-lg flex items-center gap-2"
+              className="px-6 py-2 rounded bg-[var(--navy)] hover:bg-[var(--navy)] text-white transition-colors text-xs font-bold uppercase tracking-wider shadow-lg flex items-center gap-2"
            >
               <Save size={14} />
               {mode === 'CREATE' ? 'Initialize' : 'Save Changes'}

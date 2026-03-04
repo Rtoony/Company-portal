@@ -144,7 +144,7 @@ export const DxfWarRoom: React.FC<DxfWarRoomProps> = ({ initialDxfContent }) => 
   };
 
   return (
-    <div className="flex h-[600px] w-full bg-[#09090b] text-white font-sans overflow-hidden relative border border-white/10 rounded-sm">
+    <div className="flex h-[600px] w-full bg-[var(--bg-main)] text-white font-sans overflow-hidden relative border border-white/10 rounded-sm">
         
         {/* --- 1. THE STAGE --- */}
         <div 
@@ -292,7 +292,7 @@ export const DxfWarRoom: React.FC<DxfWarRoomProps> = ({ initialDxfContent }) => 
                     </div>
                 ) : (
                     <div className="mt-2">
-                        <label className="flex items-center gap-2 px-3 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded text-xs font-bold uppercase cursor-pointer transition-colors w-fit">
+                        <label className="flex items-center gap-2 px-3 py-1.5 bg-[var(--navy)] hover:bg-[var(--navy)] text-white rounded text-xs font-bold uppercase cursor-pointer transition-colors w-fit">
                             <Upload size={12} /> Load DXF
                             <input type="file" accept=".dxf" className="hidden" onChange={handleFileUpload} />
                         </label>
@@ -324,7 +324,7 @@ export const DxfWarRoom: React.FC<DxfWarRoomProps> = ({ initialDxfContent }) => 
             <div className="absolute bottom-4 right-4 z-50 w-64 max-h-[50vh] flex flex-col pointer-events-auto">
                 <div className="bg-black/90 backdrop-blur border border-white/10 rounded-t p-3 flex justify-between items-center">
                     <span className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                        <Layers size={14} className="text-indigo-500"/> Layers ({data.layers.length})
+                        <Layers size={14} className="text-[var(--navy)]"/> Layers ({data.layers.length})
                     </span>
                 </div>
                 <div className="bg-black/80 border-x border-b border-white/10 rounded-b overflow-y-auto custom-scrollbar p-2 space-y-1">

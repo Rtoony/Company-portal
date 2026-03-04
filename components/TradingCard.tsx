@@ -195,7 +195,7 @@ export const TradingCard: React.FC<TradingCardProps> = ({
         <div 
             onClick={handleClick}
             className={`
-                group flex items-center gap-4 p-3 bg-[#18181b] border-b border-white/5 
+                group flex items-center gap-4 p-3 bg-[var(--bg-card)] border-b border-white/5 
                 hover:bg-white/5 transition-colors cursor-pointer relative overflow-hidden
             `}
         >
@@ -254,7 +254,7 @@ export const TradingCard: React.FC<TradingCardProps> = ({
                     <Star size={14} className={card.isFavorite ? "fill-amber-400 text-amber-400" : "text-neutral-600 hover:text-white"} />
                  </button>
                  <div className="flex gap-1">
-                    <button onClick={handleEditClick} className="p-2 text-neutral-600 hover:text-indigo-400 transition-colors" title="Edit">
+                    <button onClick={handleEditClick} className="p-2 text-neutral-600 hover:text-[var(--navy)] transition-colors" title="Edit">
                         <Edit size={14} />
                     </button>
                     <button onClick={handleDeleteClick} className="p-2 text-neutral-600 hover:text-red-400 transition-colors" title="Delete">
@@ -275,7 +275,7 @@ export const TradingCard: React.FC<TradingCardProps> = ({
         onClick={handleClick}
         className={`
           group relative w-full aspect-[4/3] 
-          bg-[#18181b] rounded-sm overflow-hidden
+          bg-[var(--bg-card)] rounded-sm overflow-hidden
           border border-[var(--border-main)]
           transition-all duration-300 cursor-pointer
           flex flex-col shadow-md
@@ -382,7 +382,7 @@ export const TradingCard: React.FC<TradingCardProps> = ({
        <div className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
           
           {/* ================= FRONT FACE ================= */}
-          <div className="absolute inset-0 backface-hidden bg-[#18181b] border border-[var(--border-main)] rounded-sm shadow-[0_0_40px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden">
+          <div className="absolute inset-0 backface-hidden bg-[var(--bg-card)] border border-[var(--border-main)] rounded-sm shadow-[0_0_40px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden">
              
              {/* Status Bar */}
              <div className="h-1.5 w-full flex">
@@ -426,7 +426,7 @@ export const TradingCard: React.FC<TradingCardProps> = ({
                     >
                         <Star size={24} className={card.isFavorite ? "fill-amber-400 text-amber-400" : "text-neutral-600 group-hover:text-white"} />
                     </button>
-                    <button onClick={handleEditClick} className="p-3 bg-white/5 hover:bg-indigo-500/20 hover:border-indigo-500/50 border border-white/5 rounded-full transition-all group text-neutral-500 hover:text-indigo-400">
+                    <button onClick={handleEditClick} className="p-3 bg-white/5 hover:bg-[rgba(0,49,83,0.2)] hover:border-[var(--navy)]/50 border border-white/5 rounded-full transition-all group text-neutral-500 hover:text-[var(--navy)]">
                         <Edit size={20} />
                     </button>
                     <button onClick={handleDeleteClick} className="p-3 bg-white/5 hover:bg-red-500/20 hover:border-red-500/50 border border-white/5 rounded-full transition-all group text-neutral-500 hover:text-red-400">
@@ -549,14 +549,14 @@ export const TradingCard: React.FC<TradingCardProps> = ({
           {/* ================= BACK FACE (Specification) ================= */}
           <div className={`
              absolute inset-0 backface-hidden rotate-y-180 
-             bg-[#18181b] border border-[var(--border-main)] rounded-sm shadow-[0_0_40px_rgba(0,0,0,0.8)]
+             bg-[var(--bg-card)] border border-[var(--border-main)] rounded-sm shadow-[0_0_40px_rgba(0,0,0,0.8)]
              flex flex-col overflow-hidden text-neutral-300
           `}>
              {/* Top Bar */}
              <div className={`h-1.5 w-full ${theme.baseColor} opacity-50`}></div>
 
              {/* Header */}
-             <div className="h-20 bg-[#121212] border-b border-white/5 flex items-center px-8 justify-between">
+             <div className="h-20 bg-[var(--bg-main)] border-b border-white/5 flex items-center px-8 justify-between">
                 <div>
                     <h2 className={`text-lg font-bold tracking-widest uppercase font-mono flex items-center gap-2 ${textColorClass}`}>
                     <FileText size={18} /> Specification
@@ -569,7 +569,7 @@ export const TradingCard: React.FC<TradingCardProps> = ({
              </div>
 
              {/* Scrollable Terminal Content */}
-             <div className="flex-1 p-8 font-mono text-sm overflow-y-auto custom-scrollbar bg-[#09090b] relative">
+             <div className="flex-1 p-8 font-mono text-sm overflow-y-auto custom-scrollbar bg-[var(--bg-main)] relative">
                  {/* Subtle Grid in Background */}
                  <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none"></div>
                  
@@ -639,19 +639,19 @@ export const TradingCard: React.FC<TradingCardProps> = ({
                                 <Layers size={12}/> Layer Attributes
                             </h3>
                             <div className="grid grid-cols-2 gap-px bg-white/10 border border-white/10 rounded overflow-hidden">
-                                <div className="p-3 bg-[#121212]">
+                                <div className="p-3 bg-[var(--bg-main)]">
                                     <div className="text-[9px] text-neutral-600 uppercase">Layer Key</div>
                                     <div className="text-xs text-neutral-300 mt-1">C-PROP-LINE</div>
                                 </div>
-                                <div className="p-3 bg-[#121212]">
+                                <div className="p-3 bg-[var(--bg-main)]">
                                     <div className="text-[9px] text-neutral-600 uppercase">Color</div>
                                     <div className="text-xs text-neutral-300 mt-1">INDEX 4 (CYAN)</div>
                                 </div>
-                                <div className="p-3 bg-[#121212]">
+                                <div className="p-3 bg-[var(--bg-main)]">
                                     <div className="text-[9px] text-neutral-600 uppercase">Linetype</div>
                                     <div className="text-xs text-neutral-300 mt-1">PHANTOM2</div>
                                 </div>
-                                <div className="p-3 bg-[#121212]">
+                                <div className="p-3 bg-[var(--bg-main)]">
                                     <div className="text-[9px] text-neutral-600 uppercase">Plot Style</div>
                                     <div className="text-xs text-neutral-300 mt-1">NORMAL</div>
                                 </div>
@@ -703,7 +703,7 @@ export const TradingCard: React.FC<TradingCardProps> = ({
              </div>
 
              {/* Action Footer */}
-             <div className="p-6 bg-[#121212] border-t border-white/10">
+             <div className="p-6 bg-[var(--bg-main)] border-t border-white/10">
                 <button className={`
                     w-full py-3 font-bold text-black text-sm uppercase tracking-widest rounded shadow-lg 
                     ${theme.baseColor} hover:brightness-110 active:scale-[0.98] transition-all 

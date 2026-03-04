@@ -260,13 +260,13 @@ export const EmployeeFormModal: React.FC<EmployeeFormModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 animate-in fade-in duration-200">
-      <div className="w-full max-w-lg bg-[#18181b] border border-indigo-500/50 rounded-sm shadow-[0_0_50px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden relative max-h-[90vh]">
+      <div className="w-full max-w-lg bg-[var(--bg-card)] border border-[var(--navy)]/50 rounded-sm shadow-[0_0_50px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden relative max-h-[90vh]">
         
         {/* Top Accent */}
         <div className="h-1 w-full bg-emerald-500"></div>
 
         {/* Header */}
-        <div className="p-6 border-b border-white/10 bg-[#121212] flex justify-between items-center shrink-0">
+        <div className="p-6 border-b border-white/10 bg-[var(--bg-main)] flex justify-between items-center shrink-0">
           <div>
             <div className="text-[10px] font-mono font-bold text-emerald-500 uppercase tracking-widest mb-1">
               HR Data Terminal
@@ -302,7 +302,7 @@ export const EmployeeFormModal: React.FC<EmployeeFormModalProps> = ({
                       <button 
                         type="button"
                         onClick={handleGeneratorToggle}
-                        className="p-1.5 rounded-full bg-indigo-600 text-white hover:bg-indigo-500 transition-colors"
+                        className="p-1.5 rounded-full bg-[var(--navy)] text-white hover:bg-[var(--navy)] transition-colors"
                         title="Open Personnel Generator"
                       >
                          <Wand2 size={14} />
@@ -329,7 +329,7 @@ export const EmployeeFormModal: React.FC<EmployeeFormModalProps> = ({
                         type="text"
                         value={formData.name}
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
-                        className={`w-full p-2 bg-[#09090b] border rounded text-sm text-white focus:outline-none transition-colors font-bold ${errors.name ? 'border-red-500' : 'border-white/10 focus:border-indigo-500'}`}
+                        className={`w-full p-2 bg-[var(--bg-main)] border rounded text-sm text-white focus:outline-none transition-colors font-bold ${errors.name ? 'border-red-500' : 'border-white/10 focus:border-[var(--navy)]'}`}
                         placeholder="e.g. John Doe"
                     />
                 </div>
@@ -339,7 +339,7 @@ export const EmployeeFormModal: React.FC<EmployeeFormModalProps> = ({
                         type="text"
                         value={formData.title}
                         onChange={(e) => setFormData({...formData, title: e.target.value})}
-                        className={`w-full p-2 bg-[#09090b] border rounded text-sm text-white focus:outline-none transition-colors ${errors.title ? 'border-red-500' : 'border-white/10 focus:border-indigo-500'}`}
+                        className={`w-full p-2 bg-[var(--bg-main)] border rounded text-sm text-white focus:outline-none transition-colors ${errors.title ? 'border-red-500' : 'border-white/10 focus:border-[var(--navy)]'}`}
                         placeholder="e.g. Senior Surveyor"
                     />
                 </div>
@@ -348,10 +348,10 @@ export const EmployeeFormModal: React.FC<EmployeeFormModalProps> = ({
 
           {/* --- PERSONNEL GENERATOR UI --- */}
           {showGenerator && (
-              <div className="bg-indigo-500/10 border border-indigo-500/30 rounded-lg p-4 mb-4 animate-in slide-in-from-top-2 relative overflow-hidden">
+              <div className="bg-[rgba(0,49,83,0.1)] border border-[var(--navy)]/30 rounded-lg p-4 mb-4 animate-in slide-in-from-top-2 relative overflow-hidden">
                   <div className="flex justify-between items-center mb-3 relative z-10">
-                      <div className="flex items-center gap-2 text-indigo-400 font-bold text-xs uppercase tracking-widest">
-                          <Sparkles size={14} className="fill-indigo-500" /> Personnel Generator
+                      <div className="flex items-center gap-2 text-[var(--navy)] font-bold text-xs uppercase tracking-widest">
+                          <Sparkles size={14} className="fill-[var(--navy)]" /> Personnel Generator
                       </div>
                       <button type="button" onClick={() => setShowGenerator(false)} className="text-neutral-500 hover:text-white"><X size={14}/></button>
                   </div>
@@ -362,14 +362,14 @@ export const EmployeeFormModal: React.FC<EmployeeFormModalProps> = ({
                           <button 
                             type="button"
                             onClick={() => setGenerateIdentity(false)}
-                            className={`flex-1 py-1.5 text-[10px] font-bold uppercase rounded transition-colors ${!generateIdentity ? 'bg-indigo-600 text-white' : 'text-neutral-500 hover:text-white'}`}
+                            className={`flex-1 py-1.5 text-[10px] font-bold uppercase rounded transition-colors ${!generateIdentity ? 'bg-[var(--navy)] text-white' : 'text-neutral-500 hover:text-white'}`}
                           >
                               Image Only
                           </button>
                           <button 
                             type="button"
                             onClick={() => setGenerateIdentity(true)}
-                            className={`flex-1 py-1.5 text-[10px] font-bold uppercase rounded transition-colors ${generateIdentity ? 'bg-indigo-600 text-white' : 'text-neutral-500 hover:text-white'}`}
+                            className={`flex-1 py-1.5 text-[10px] font-bold uppercase rounded transition-colors ${generateIdentity ? 'bg-[var(--navy)] text-white' : 'text-neutral-500 hover:text-white'}`}
                           >
                               Full Identity
                           </button>
@@ -384,7 +384,7 @@ export const EmployeeFormModal: React.FC<EmployeeFormModalProps> = ({
                               value={generatorPrompt}
                               onChange={(e) => setGeneratorPrompt(e.target.value)}
                               placeholder={generateIdentity ? "e.g. Grumpy surveyor who loves coffee..." : "e.g. Wearing a safety vest, holding a prism pole..."}
-                              className="w-full p-2 bg-black/40 border border-white/10 rounded text-xs text-white focus:border-indigo-500 focus:outline-none placeholder:text-neutral-600"
+                              className="w-full p-2 bg-black/40 border border-white/10 rounded text-xs text-white focus:border-[var(--navy)] focus:outline-none placeholder:text-neutral-600"
                           />
                       </div>
                       
@@ -393,7 +393,7 @@ export const EmployeeFormModal: React.FC<EmployeeFormModalProps> = ({
                             type="button"
                             onClick={() => handleGenerate(false)}
                             disabled={isGenerating || (!generatorPrompt && !generateIdentity)}
-                            className="flex-1 py-2 bg-indigo-600 hover:bg-indigo-500 disabled:bg-neutral-800 disabled:text-neutral-500 text-white rounded text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors border border-indigo-500/50"
+                            className="flex-1 py-2 bg-[var(--navy)] hover:bg-[var(--navy)] disabled:bg-neutral-800 disabled:text-neutral-500 text-white rounded text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors border border-[var(--navy)]/50"
                           >
                               {isGenerating ? <Loader2 size={12} className="animate-spin" /> : <Bot size={12} />}
                               Generate
@@ -414,7 +414,7 @@ export const EmployeeFormModal: React.FC<EmployeeFormModalProps> = ({
                   </div>
                   
                   {/* Background Accents */}
-                  <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-indigo-500/20 blur-xl rounded-full pointer-events-none"></div>
+                  <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-[rgba(0,49,83,0.2)] blur-xl rounded-full pointer-events-none"></div>
               </div>
           )}
 
@@ -427,7 +427,7 @@ export const EmployeeFormModal: React.FC<EmployeeFormModalProps> = ({
                 <select 
                    value={formData.department}
                    onChange={(e) => setFormData({...formData, department: e.target.value as any})}
-                   className="w-full p-3 bg-[#09090b] border border-white/10 rounded text-sm text-white focus:border-emerald-500 focus:outline-none transition-colors cursor-pointer"
+                   className="w-full p-3 bg-[var(--bg-main)] border border-white/10 rounded text-sm text-white focus:border-emerald-500 focus:outline-none transition-colors cursor-pointer"
                 >
                    <option value="Engineering">Engineering</option>
                    <option value="Surveying">Surveying</option>
@@ -443,7 +443,7 @@ export const EmployeeFormModal: React.FC<EmployeeFormModalProps> = ({
                 <select 
                    value={formData.status}
                    onChange={(e) => setFormData({...formData, status: e.target.value as EmployeeStatus})}
-                   className="w-full p-3 bg-[#09090b] border border-white/10 rounded text-sm text-white focus:border-emerald-500 focus:outline-none transition-colors cursor-pointer"
+                   className="w-full p-3 bg-[var(--bg-main)] border border-white/10 rounded text-sm text-white focus:border-emerald-500 focus:outline-none transition-colors cursor-pointer"
                 >
                    <option value="ACTIVE">ACTIVE</option>
                    <option value="FIELD">FIELD</option>
@@ -465,7 +465,7 @@ export const EmployeeFormModal: React.FC<EmployeeFormModalProps> = ({
                    value={formData.email}
                    onChange={(e) => setFormData({...formData, email: e.target.value})}
                    placeholder="user@acme.com"
-                   className="w-full p-3 bg-[#09090b] border border-white/10 rounded text-sm text-white focus:border-emerald-500 focus:outline-none transition-colors"
+                   className="w-full p-3 bg-[var(--bg-main)] border border-white/10 rounded text-sm text-white focus:border-emerald-500 focus:outline-none transition-colors"
                 />
              </div>
              <div className="space-y-1.5">
@@ -477,7 +477,7 @@ export const EmployeeFormModal: React.FC<EmployeeFormModalProps> = ({
                    value={formData.phone}
                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
                    placeholder="x100"
-                   className="w-full p-3 bg-[#09090b] border border-white/10 rounded text-sm text-white focus:border-emerald-500 focus:outline-none transition-colors"
+                   className="w-full p-3 bg-[var(--bg-main)] border border-white/10 rounded text-sm text-white focus:border-emerald-500 focus:outline-none transition-colors"
                 />
              </div>
           </div>
@@ -492,7 +492,7 @@ export const EmployeeFormModal: React.FC<EmployeeFormModalProps> = ({
                 value={formData.location}
                 onChange={(e) => setFormData({...formData, location: e.target.value})}
                 placeholder="e.g. Office 204 or 'Site: Smith Creek'"
-                className="w-full p-3 bg-[#09090b] border border-white/10 rounded text-sm text-white focus:border-emerald-500 focus:outline-none transition-colors"
+                className="w-full p-3 bg-[var(--bg-main)] border border-white/10 rounded text-sm text-white focus:border-emerald-500 focus:outline-none transition-colors"
              />
           </div>
 
@@ -506,14 +506,14 @@ export const EmployeeFormModal: React.FC<EmployeeFormModalProps> = ({
                 value={skillsInput}
                 onChange={(e) => setSkillsInput(e.target.value)}
                 placeholder="Comma separated: AutoCAD, Hydrology, Drone Pilot..."
-                className="w-full p-3 bg-[#09090b] border border-white/10 rounded text-sm text-white focus:border-emerald-500 focus:outline-none transition-colors resize-none"
+                className="w-full p-3 bg-[var(--bg-main)] border border-white/10 rounded text-sm text-white focus:border-emerald-500 focus:outline-none transition-colors resize-none"
              />
           </div>
 
         </form>
 
         {/* Footer Actions */}
-        <div className="p-6 bg-[#121212] border-t border-white/10 flex justify-end gap-3 shrink-0">
+        <div className="p-6 bg-[var(--bg-main)] border-t border-white/10 flex justify-end gap-3 shrink-0">
            <button 
               onClick={onClose}
               className="px-4 py-2 rounded border border-white/10 text-neutral-400 hover:text-white hover:bg-white/5 transition-colors text-xs font-bold uppercase tracking-wider"

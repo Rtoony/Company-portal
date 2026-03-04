@@ -92,7 +92,7 @@ export const PersonnelModule: React.FC = () => {
           {/* Header */}
           <div className="px-8 py-6 border-b border-[var(--border-subtle)] bg-[var(--bg-main)]/90 backdrop-blur-md flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
-                  <div className="flex items-center gap-2 mb-1 text-indigo-500">
+                  <div className="flex items-center gap-2 mb-1 text-[var(--navy)]">
                       <Users size={16} />
                       <span className="text-[10px] font-mono font-bold uppercase tracking-widest">HR & Operations</span>
                   </div>
@@ -110,7 +110,7 @@ export const PersonnelModule: React.FC = () => {
           </div>
 
           {/* Controls */}
-          <div className="px-8 py-4 bg-[#18181b] border-b border-white/5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="px-8 py-4 bg-[var(--bg-card)] border-b border-white/5 flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div className="flex items-center gap-4 flex-1">
                   <div className="relative w-full max-w-md">
                       <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-500" size={16} />
@@ -119,7 +119,7 @@ export const PersonnelModule: React.FC = () => {
                           value={searchTerm}
                           onChange={(e) => setSearchTerm(e.target.value)}
                           placeholder="Find employee..."
-                          className="w-full pl-10 pr-4 py-2 bg-black/40 border border-white/10 rounded text-sm text-white focus:outline-none focus:border-indigo-500/50 transition-all font-mono placeholder:text-neutral-600"
+                          className="w-full pl-10 pr-4 py-2 bg-black/40 border border-white/10 rounded text-sm text-white focus:outline-none focus:border-[var(--navy)]/50 transition-all font-mono placeholder:text-neutral-600"
                       />
                   </div>
                   <div className="h-8 w-[1px] bg-white/10 hidden md:block"></div>
@@ -131,7 +131,7 @@ export const PersonnelModule: React.FC = () => {
                               className={`
                                   px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border transition-all whitespace-nowrap
                                   ${deptFilter === dept 
-                                  ? 'bg-indigo-500 text-white border-transparent' 
+                                  ? 'bg-[var(--navy)] text-white border-transparent' 
                                   : 'bg-transparent text-neutral-500 border-neutral-700 hover:border-neutral-500 hover:text-neutral-300'}
                               `}
                           >
@@ -166,7 +166,7 @@ export const PersonnelModule: React.FC = () => {
                       {viewMode === 'grid' ? (
                           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
                               {filteredEmployees.map(emp => (
-                                  <div key={emp.id} className="bg-[#18181b] border border-[var(--border-main)] rounded-sm group hover:border-indigo-500/50 transition-all hover:-translate-y-1 hover:shadow-xl cursor-pointer relative overflow-hidden flex flex-col">
+                                  <div key={emp.id} className="bg-[var(--bg-card)] border border-[var(--border-main)] rounded-sm group hover:border-[var(--navy)]/50 transition-all hover:-translate-y-1 hover:shadow-xl cursor-pointer relative overflow-hidden flex flex-col">
                                       {/* Top Bar */}
                                       <div className="h-1.5 w-full bg-gradient-to-r from-neutral-800 to-neutral-700"></div>
                                       
@@ -185,8 +185,8 @@ export const PersonnelModule: React.FC = () => {
                                           </div>
 
                                           <div className="mb-4">
-                                              <h3 className="text-lg font-bold text-white leading-none mb-1 group-hover:text-indigo-300 transition-colors">{emp.name}</h3>
-                                              <p className="text-indigo-400 text-xs uppercase tracking-wider font-bold mb-4">{emp.title}</p>
+                                              <h3 className="text-lg font-bold text-white leading-none mb-1 group-hover:text-[var(--navy)] transition-colors">{emp.name}</h3>
+                                              <p className="text-[var(--navy)] text-xs uppercase tracking-wider font-bold mb-4">{emp.title}</p>
                                               
                                               <div className="space-y-2 border-t border-white/5 pt-3">
                                                   <div className="flex items-center gap-2 text-xs text-neutral-400">
@@ -221,7 +221,7 @@ export const PersonnelModule: React.FC = () => {
                                       <div className="p-3 border-t border-white/5 flex justify-end gap-2 bg-black/10">
                                           <button 
                                             onClick={(e) => handleEditStart(emp, e)}
-                                            className="p-1.5 text-neutral-500 hover:text-indigo-400 hover:bg-white/5 rounded transition-colors"
+                                            className="p-1.5 text-neutral-500 hover:text-[var(--navy)] hover:bg-white/5 rounded transition-colors"
                                           >
                                               <Edit size={14} />
                                           </button>
@@ -236,7 +236,7 @@ export const PersonnelModule: React.FC = () => {
                               ))}
                           </div>
                       ) : (
-                          <div className="bg-[#18181b] border border-[var(--border-main)] rounded-sm overflow-hidden">
+                          <div className="bg-[var(--bg-card)] border border-[var(--border-main)] rounded-sm overflow-hidden">
                               <table className="w-full text-left border-collapse">
                                   <thead className="bg-black/20 text-xs uppercase text-neutral-500 font-mono border-b border-white/5">
                                       <tr>
@@ -280,7 +280,7 @@ export const PersonnelModule: React.FC = () => {
                                                   <div className="flex items-center justify-end gap-2">
                                                       <button 
                                                         onClick={(e) => handleEditStart(emp, e)}
-                                                        className="text-neutral-500 hover:text-indigo-400 transition-colors"
+                                                        className="text-neutral-500 hover:text-[var(--navy)] transition-colors"
                                                       >
                                                           <Edit size={14} />
                                                       </button>
