@@ -147,7 +147,7 @@ export const ProjectsModule: React.FC = () => {
           {/* Header */}
           <div className="px-8 py-6 border-b border-[var(--border-subtle)] bg-[var(--bg-main)]/90 backdrop-blur-md flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
-                  <div className="flex items-center gap-2 mb-1 text-indigo-500">
+                  <div className="flex items-center gap-2 mb-1 text-[var(--navy)]">
                       <Briefcase size={16} />
                       <span className="text-[10px] font-mono font-bold uppercase tracking-widest">Job Management</span>
                   </div>
@@ -157,7 +157,7 @@ export const ProjectsModule: React.FC = () => {
               <div className="flex items-center gap-3">
                   <button 
                     onClick={handleCreateStart}
-                    className="flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-sm font-bold uppercase text-xs tracking-wider shadow-lg transition-colors"
+                    className="flex items-center gap-2 px-4 py-2 bg-[var(--navy)] hover:bg-[var(--navy)] text-white rounded-sm font-bold uppercase text-xs tracking-wider shadow-lg transition-colors"
                   >
                       <Plus size={16} /> New Job
                   </button>
@@ -165,7 +165,7 @@ export const ProjectsModule: React.FC = () => {
           </div>
 
           {/* Controls */}
-          <div className="px-8 py-4 bg-[#18181b] border-b border-white/5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="px-8 py-4 bg-[var(--bg-card)] border-b border-white/5 flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div className="flex items-center gap-4 flex-1">
                   <div className="relative w-full max-w-md">
                       <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-500" size={16} />
@@ -174,7 +174,7 @@ export const ProjectsModule: React.FC = () => {
                           value={searchTerm}
                           onChange={(e) => setSearchTerm(e.target.value)}
                           placeholder="Search by Job #, Name, or Client..."
-                          className="w-full pl-10 pr-4 py-2 bg-black/40 border border-white/10 rounded text-sm text-white focus:outline-none focus:border-indigo-500/50 transition-all font-mono placeholder:text-neutral-600"
+                          className="w-full pl-10 pr-4 py-2 bg-black/40 border border-white/10 rounded text-sm text-white focus:outline-none focus:border-[var(--navy)]/50 transition-all font-mono placeholder:text-neutral-600"
                       />
                   </div>
                   <div className="h-8 w-[1px] bg-white/10 hidden md:block"></div>
@@ -186,7 +186,7 @@ export const ProjectsModule: React.FC = () => {
                               className={`
                                   px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border transition-all whitespace-nowrap
                                   ${statusFilter === status 
-                                  ? 'bg-indigo-500 text-white border-transparent' 
+                                  ? 'bg-[var(--navy)] text-white border-transparent' 
                                   : 'bg-transparent text-neutral-500 border-neutral-700 hover:border-neutral-500 hover:text-neutral-300'}
                               `}
                           >
@@ -228,7 +228,7 @@ export const ProjectsModule: React.FC = () => {
               ) : (
                   <>
                       {viewMode === 'map' && (
-                          <div className="w-full h-full min-h-[500px] bg-[#09090b] border border-white/10 rounded-sm relative overflow-hidden group">
+                          <div className="w-full h-full min-h-[500px] bg-[var(--bg-main)] border border-white/10 rounded-sm relative overflow-hidden group">
                                {/* Tactical Grid Background */}
                                <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,128,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,128,0.05)_1px,transparent_1px)] bg-[size:80px_80px] pointer-events-none"></div>
                                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#000_100%)] pointer-events-none"></div>
@@ -260,15 +260,15 @@ export const ProjectsModule: React.FC = () => {
                       {viewMode === 'grid' && (
                           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
                               {filteredProjects.map(project => (
-                                  <div key={project.id} className="bg-[#18181b] border border-[var(--border-main)] rounded-sm group hover:border-indigo-500/50 transition-all hover:-translate-y-1 hover:shadow-xl cursor-pointer relative overflow-hidden flex flex-col h-[340px]">
+                                  <div key={project.id} className="bg-[var(--bg-card)] border border-[var(--border-main)] rounded-sm group hover:border-[var(--navy)]/50 transition-all hover:-translate-y-1 hover:shadow-xl cursor-pointer relative overflow-hidden flex flex-col h-[340px]">
                                       {/* Top Status Bar */}
                                       <div className={`h-1 w-full ${getProgressColor(project.status)}`}></div>
                                       
                                       <div className="p-5 flex-1 flex flex-col">
                                           <div className="flex justify-between items-start mb-4">
                                               <div>
-                                                  <div className="font-mono text-xs text-indigo-400 font-bold mb-1">JOB #{project.id}</div>
-                                                  <h3 className="text-lg font-bold text-white leading-tight group-hover:text-indigo-300 transition-colors line-clamp-1" title={project.name}>{project.name}</h3>
+                                                  <div className="font-mono text-xs text-[var(--navy)] font-bold mb-1">JOB #{project.id}</div>
+                                                  <h3 className="text-lg font-bold text-white leading-tight group-hover:text-[var(--navy)] transition-colors line-clamp-1" title={project.name}>{project.name}</h3>
                                               </div>
                                               <div className={`px-2 py-0.5 rounded border text-[9px] font-bold uppercase tracking-wider ${getStatusColor(project.status)}`}>
                                                   {project.status}
@@ -326,11 +326,11 @@ export const ProjectsModule: React.FC = () => {
                                       {/* Footer */}
                                       <div className="p-4 pt-3 border-t border-white/5 flex justify-between items-center bg-black/10">
                                           <div className="flex -space-x-2">
-                                              <div className="w-6 h-6 rounded-full bg-neutral-700 border border-[#18181b] flex items-center justify-center text-[10px] font-bold text-white" title={project.manager.name}>
+                                              <div className="w-6 h-6 rounded-full bg-neutral-700 border border-[var(--bg-card)] flex items-center justify-center text-[10px] font-bold text-white" title={project.manager.name}>
                                                   {project.manager.name.charAt(0)}
                                               </div>
                                               {project.team.map((member, i) => (
-                                                  <div key={i} className="w-6 h-6 rounded-full bg-neutral-800 border border-[#18181b] flex items-center justify-center text-[10px] text-neutral-400">
+                                                  <div key={i} className="w-6 h-6 rounded-full bg-neutral-800 border border-[var(--bg-card)] flex items-center justify-center text-[10px] text-neutral-400">
                                                       {member.name.charAt(0)}
                                                   </div>
                                               ))}
@@ -345,7 +345,7 @@ export const ProjectsModule: React.FC = () => {
                                               </button>
                                               <button 
                                                 onClick={(e) => handleEditStart(project, e)}
-                                                className="p-1.5 text-neutral-500 hover:text-indigo-400 hover:bg-white/5 rounded transition-colors"
+                                                className="p-1.5 text-neutral-500 hover:text-[var(--navy)] hover:bg-white/5 rounded transition-colors"
                                               >
                                                   <Edit size={14} />
                                               </button>
@@ -363,7 +363,7 @@ export const ProjectsModule: React.FC = () => {
                       )} 
                       
                       {viewMode === 'list' && (
-                          <div className="bg-[#18181b] border border-[var(--border-main)] rounded-sm overflow-hidden">
+                          <div className="bg-[var(--bg-card)] border border-[var(--border-main)] rounded-sm overflow-hidden">
                               <table className="w-full text-left border-collapse">
                                   <thead className="bg-black/20 text-xs uppercase text-neutral-500 font-mono border-b border-white/5">
                                       <tr>
@@ -380,7 +380,7 @@ export const ProjectsModule: React.FC = () => {
                                   <tbody className="text-sm text-neutral-300 divide-y divide-white/5">
                                       {filteredProjects.map(project => (
                                           <tr key={project.id} className="hover:bg-white/5 transition-colors group cursor-pointer" onClick={() => handleEditStart(project)}>
-                                              <td className="p-4 font-mono text-indigo-400 font-bold">{project.id}</td>
+                                              <td className="p-4 font-mono text-[var(--navy)] font-bold">{project.id}</td>
                                               <td className="p-4 font-bold">{project.name}</td>
                                               <td className="p-4 text-xs text-neutral-500 max-w-xs truncate">{project.description}</td>
                                               <td className="p-4 text-neutral-400">{project.client}</td>
@@ -402,7 +402,7 @@ export const ProjectsModule: React.FC = () => {
                                                       </button>
                                                       <button 
                                                         onClick={(e) => handleEditStart(project, e)}
-                                                        className="text-neutral-500 hover:text-indigo-400 transition-colors"
+                                                        className="text-neutral-500 hover:text-[var(--navy)] transition-colors"
                                                       >
                                                           <Edit size={14} />
                                                       </button>

@@ -26,7 +26,7 @@ export const UserPanel: React.FC<UserPanelProps> = ({ user, onClose, onUpdatePre
     <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[400px] bg-[var(--bg-card)] border border-[var(--border-main)] rounded-sm shadow-[0_20px_60px_rgba(0,0,0,0.9)] z-[100] overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200 flex flex-col font-sans ring-1 ring-white/20">
       
       {/* Header / Identity Strip */}
-      <div className="bg-[#18181b] border-b border-[var(--border-subtle)] p-4 flex items-start gap-4 relative overflow-hidden">
+      <div className="bg-[var(--bg-card)] border-b border-[var(--border-subtle)] p-4 flex items-start gap-4 relative overflow-hidden">
          {/* Background Texture */}
          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
          <div className="absolute top-0 right-0 p-2">
@@ -36,7 +36,7 @@ export const UserPanel: React.FC<UserPanelProps> = ({ user, onClose, onUpdatePre
          </div>
 
          <div className="relative w-20 h-20 shrink-0">
-             <div className="w-full h-full rounded bg-white border-2 border-indigo-500/50 overflow-hidden shadow-inner flex items-center justify-center">
+             <div className="w-full h-full rounded bg-white border-2 border-[var(--navy)]/50 overflow-hidden shadow-inner flex items-center justify-center">
                 {!imgError ? (
                     <img 
                     src={user.avatarUrl} 
@@ -46,17 +46,17 @@ export const UserPanel: React.FC<UserPanelProps> = ({ user, onClose, onUpdatePre
                     crossOrigin="anonymous"
                     />
                 ) : (
-                    <User size={40} className="text-indigo-500/50"/>
+                    <User size={40} className="text-[var(--navy)]/50"/>
                 )}
              </div>
-             <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-indigo-600 rounded-full border-2 border-[#18181b] flex items-center justify-center text-[10px] font-bold text-white shadow-sm">
+             <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-[var(--navy)] rounded-full border-2 border-[var(--bg-card)] flex items-center justify-center text-[10px] font-bold text-white shadow-sm">
                 {user.level}
              </div>
          </div>
 
          <div className="pt-1">
             <h3 className="text-xl font-bold text-white leading-none mb-1">{user.name}</h3>
-            <p className="text-indigo-400 text-xs font-mono uppercase tracking-wider mb-3">{user.title}</p>
+            <p className="text-[var(--navy)] text-xs font-mono uppercase tracking-wider mb-3">{user.title}</p>
             
             <div className="flex items-center gap-2">
                <span className={`px-1.5 py-0.5 text-[9px] font-bold uppercase rounded border ${user.status?.includes('Active') ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' : 'bg-neutral-700 text-neutral-400'}`}>
@@ -68,23 +68,23 @@ export const UserPanel: React.FC<UserPanelProps> = ({ user, onClose, onUpdatePre
       </div>
 
       {/* Tabs */}
-      <div className="flex border-b border-[var(--border-subtle)] bg-[#09090b]">
+      <div className="flex border-b border-[var(--border-subtle)] bg-[var(--bg-main)]">
          <button 
             onClick={() => setActiveTab('FILE')}
-            className={`flex-1 py-3 text-xs font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 ${activeTab === 'FILE' ? 'text-white bg-[#18181b] border-t-2 border-indigo-500' : 'text-neutral-500 hover:text-neutral-300 hover:bg-white/5'}`}
+            className={`flex-1 py-3 text-xs font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 ${activeTab === 'FILE' ? 'text-white bg-[var(--bg-card)] border-t-2 border-[var(--navy)]' : 'text-neutral-500 hover:text-neutral-300 hover:bg-white/5'}`}
          >
             <FileText size={12} /> Personnel File
          </button>
          <button 
             onClick={() => setActiveTab('CONFIG')}
-            className={`flex-1 py-3 text-xs font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 ${activeTab === 'CONFIG' ? 'text-white bg-[#18181b] border-t-2 border-indigo-500' : 'text-neutral-500 hover:text-neutral-300 hover:bg-white/5'}`}
+            className={`flex-1 py-3 text-xs font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 ${activeTab === 'CONFIG' ? 'text-white bg-[var(--bg-card)] border-t-2 border-[var(--navy)]' : 'text-neutral-500 hover:text-neutral-300 hover:bg-white/5'}`}
          >
             <Settings size={12} /> Sys. Config
          </button>
       </div>
 
       {/* Scrollable Content */}
-      <div className="bg-[#18181b] h-96 overflow-y-auto custom-scrollbar relative">
+      <div className="bg-[var(--bg-card)] h-96 overflow-y-auto custom-scrollbar relative">
          <div className="absolute inset-0 bg-grid opacity-5 pointer-events-none"></div>
          
          {activeTab === 'FILE' && (
@@ -127,10 +127,10 @@ export const UserPanel: React.FC<UserPanelProps> = ({ user, onClose, onUpdatePre
                 {/* Bio & Lore */}
                 {user.bio && (
                     <div>
-                        <h4 className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest mb-2 flex items-center gap-2">
+                        <h4 className="text-[10px] font-bold text-[var(--navy)] uppercase tracking-widest mb-2 flex items-center gap-2">
                             <Shield size={12}/> The Standard
                         </h4>
-                        <p className="text-xs leading-relaxed text-neutral-400 border-l-2 border-indigo-500/30 pl-3 italic">
+                        <p className="text-xs leading-relaxed text-neutral-400 border-l-2 border-[var(--navy)]/30 pl-3 italic">
                             "{user.bio}"
                         </p>
                     </div>
@@ -139,12 +139,12 @@ export const UserPanel: React.FC<UserPanelProps> = ({ user, onClose, onUpdatePre
                 {/* Expertise Tags */}
                 {user.expertise && (
                     <div>
-                        <h4 className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest mb-2 flex items-center gap-2">
+                        <h4 className="text-[10px] font-bold text-[var(--navy)] uppercase tracking-widest mb-2 flex items-center gap-2">
                             <PenTool size={12}/> Key Expertise
                         </h4>
                         <div className="flex flex-wrap gap-2">
                             {user.expertise.map((skill, i) => (
-                                <span key={i} className="px-2 py-1 rounded bg-indigo-500/10 border border-indigo-500/20 text-[10px] text-indigo-300">
+                                <span key={i} className="px-2 py-1 rounded bg-[rgba(0,49,83,0.1)] border border-[var(--navy)]/20 text-[10px] text-[var(--navy)]">
                                     {skill}
                                 </span>
                             ))}
@@ -180,7 +180,7 @@ export const UserPanel: React.FC<UserPanelProps> = ({ user, onClose, onUpdatePre
                        </div>
                     </div>
                     <div className="text-neutral-500 group-hover:text-white">
-                        {user.preferences.showGrid ? <ToggleRight size={20} className="text-indigo-500" /> : <ToggleLeft size={20} />}
+                        {user.preferences.showGrid ? <ToggleRight size={20} className="text-[var(--navy)]" /> : <ToggleLeft size={20} />}
                     </div>
                  </button>
 
@@ -195,7 +195,7 @@ export const UserPanel: React.FC<UserPanelProps> = ({ user, onClose, onUpdatePre
                        </div>
                     </div>
                     <div className="text-neutral-500 group-hover:text-white">
-                        {user.preferences.notifications ? <ToggleRight size={20} className="text-indigo-500" /> : <ToggleLeft size={20} />}
+                        {user.preferences.notifications ? <ToggleRight size={20} className="text-[var(--navy)]" /> : <ToggleLeft size={20} />}
                     </div>
                  </button>
                  
@@ -219,7 +219,7 @@ export const UserPanel: React.FC<UserPanelProps> = ({ user, onClose, onUpdatePre
       </div>
 
       {/* Footer */}
-      <div className="bg-[#09090b] border-t border-[var(--border-subtle)] p-3 flex justify-between items-center">
+      <div className="bg-[var(--bg-main)] border-t border-[var(--border-subtle)] p-3 flex justify-between items-center">
           <span className="text-[9px] font-mono text-neutral-600">
              LAST LOGIN: TODAY, 06:00 AM
           </span>

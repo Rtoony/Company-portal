@@ -51,7 +51,7 @@ export const SiteReconModule: React.FC = () => {
                   </p>
               </div>
               <div className="hidden md:block">
-                   <div className="px-4 py-2 bg-[#18181b] border border-white/10 rounded flex items-center gap-3">
+                   <div className="px-4 py-2 bg-[var(--bg-card)] border border-white/10 rounded flex items-center gap-3">
                        <div className="flex items-center gap-2">
                            <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
                            <span className="text-[10px] text-neutral-400 font-mono uppercase">Sat-Link: ACTIVE</span>
@@ -68,7 +68,7 @@ export const SiteReconModule: React.FC = () => {
               <div className="w-full lg:w-1/3 flex flex-col gap-6">
                   
                   {/* Search Box */}
-                  <div className="bg-[#18181b] border border-emerald-500/30 rounded-sm p-6 shadow-2xl relative overflow-hidden">
+                  <div className="bg-[var(--bg-card)] border border-emerald-500/30 rounded-sm p-6 shadow-2xl relative overflow-hidden">
                       <div className="absolute top-0 left-0 w-1 h-full bg-emerald-500"></div>
                       <h2 className="text-sm font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
                           <Search size={16} className="text-emerald-500"/> Target Acquisition
@@ -106,7 +106,7 @@ export const SiteReconModule: React.FC = () => {
                   </div>
 
                   {/* Status / History */}
-                  <div className="flex-1 bg-[#18181b] border border-white/10 rounded-sm p-6 relative">
+                  <div className="flex-1 bg-[var(--bg-card)] border border-white/10 rounded-sm p-6 relative">
                       <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-4 border-b border-white/5 pb-2">
                           Mission Logs
                       </h3>
@@ -131,7 +131,7 @@ export const SiteReconModule: React.FC = () => {
               </div>
 
               {/* Right Panel: Analysis Report */}
-              <div className="w-full lg:w-2/3 bg-[#09090b] border border-[var(--border-main)] rounded-sm relative flex flex-col overflow-hidden">
+              <div className="w-full lg:w-2/3 bg-[var(--bg-main)] border border-[var(--border-main)] rounded-sm relative flex flex-col overflow-hidden">
                   
                   {/* Decorative Scan Lines */}
                   <div className="absolute inset-0 bg-[linear-gradient(rgba(18,18,18,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] z-0 pointer-events-none bg-[length:100%_4px,6px_100%]"></div>
@@ -197,7 +197,7 @@ export const SiteReconModule: React.FC = () => {
                               </div>
                           ) : (
                               <div className="text-center max-w-md p-8">
-                                  <div className="w-24 h-24 bg-[#18181b] rounded-full flex items-center justify-center mx-auto mb-6 border border-white/5">
+                                  <div className="w-24 h-24 bg-[var(--bg-card)] rounded-full flex items-center justify-center mx-auto mb-6 border border-white/5">
                                       <Zap size={40} className="text-neutral-700" />
                                   </div>
                                   <h3 className="text-lg font-bold text-neutral-400 mb-2">System Idle</h3>

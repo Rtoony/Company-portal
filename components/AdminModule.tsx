@@ -64,7 +64,7 @@ export const AdminModule: React.FC = () => {
               
               {/* System Health */}
               <div className="lg:col-span-2 space-y-6">
-                  <div className="bg-[#18181b] border border-[var(--border-main)] rounded-sm p-6">
+                  <div className="bg-[var(--bg-card)] border border-[var(--border-main)] rounded-sm p-6">
                       <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-6 flex items-center gap-2">
                           <Activity size={16} className="text-emerald-500"/> System Health Status
                       </h3>
@@ -89,10 +89,10 @@ export const AdminModule: React.FC = () => {
                       </div>
                   </div>
 
-                  <div className="bg-[#18181b] border border-[var(--border-main)] rounded-sm overflow-hidden flex flex-col h-[400px]">
-                      <div className="p-4 border-b border-white/5 flex justify-between items-center bg-[#121212]">
+                  <div className="bg-[var(--bg-card)] border border-[var(--border-main)] rounded-sm overflow-hidden flex flex-col h-[400px]">
+                      <div className="p-4 border-b border-white/5 flex justify-between items-center bg-[var(--bg-main)]">
                           <h3 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                              <Terminal size={16} className="text-indigo-500"/> Live Transaction Log
+                              <Terminal size={16} className="text-[var(--navy)]"/> Live Transaction Log
                           </h3>
                           <div className="flex items-center gap-2">
                               <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
@@ -120,7 +120,7 @@ export const AdminModule: React.FC = () => {
 
               {/* Quick Actions */}
               <div className="space-y-6">
-                  <div className="bg-[#18181b] border border-[var(--border-main)] rounded-sm p-6">
+                  <div className="bg-[var(--bg-card)] border border-[var(--border-main)] rounded-sm p-6">
                       <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
                           <Server size={16} className="text-neutral-400"/> Server Control
                       </h3>
@@ -162,7 +162,7 @@ export const AdminModule: React.FC = () => {
                       </div>
                   </div>
 
-                  <div className="bg-[#18181b] border border-[var(--border-main)] rounded-sm p-6">
+                  <div className="bg-[var(--bg-card)] border border-[var(--border-main)] rounded-sm p-6">
                       <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
                           <Bell size={16} className="text-yellow-500"/> Global Alerts
                       </h3>

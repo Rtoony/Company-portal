@@ -3,37 +3,110 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ACME CAD Standards</title>
+    <title>BR Portal - CAD Standards</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: {
+                DEFAULT: '#003153',
+                50: '#e6eef4',
+                100: '#b0c9db',
+                200: '#7aa4c2',
+                300: '#447fa9',
+                400: '#1a5f8e',
+                500: '#003153',
+                600: '#002a47',
+                700: '#00213a',
+                800: '#001a2e',
+                900: '#001220',
+              },
+              brred: {
+                DEFAULT: '#9B1B30',
+                50: '#fce8ec',
+                100: '#f4b8c2',
+                200: '#e87d90',
+                300: '#c9344d',
+                400: '#b2273e',
+                500: '#9B1B30',
+                600: '#841728',
+                700: '#6d1321',
+              },
+            }
+          }
+        }
+      }
+    </script>
     <style>
-      /* Sleek Engineering Scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
-        background: #18181b;
+      /* B&R Design System */
+      :root {
+        --navy: #003153;
+        --brred: #9B1B30;
+        --bg-main: #f7f7f7;
+        --bg-card: #ffffff;
+        --bg-subtle: #f0f4f8;
+        --bg-ctrl: #ffffff;
+        --text-main: #2a2a2a;
+        --text-muted: #666666;
+        --text-faint: #999999;
+        --text-highlight: #003153;
+        --border-main: #dddddd;
+        --border-subtle: #eeeeee;
+        --shadow: rgba(0,0,0,0.08);
+        --th-bg: #003153;
+        --accent-bar: linear-gradient(90deg, #9B1B30 0%, #9B1B30 35%, #003153 100%);
       }
-      ::-webkit-scrollbar-track {
-        background: #18181b; 
+
+      [data-theme="dark"] {
+        --bg-main: #1a1d23;
+        --bg-card: #23272e;
+        --bg-subtle: #1e2128;
+        --bg-ctrl: #23272e;
+        --text-main: #e0e0e0;
+        --text-muted: #a0a0a0;
+        --text-faint: #666666;
+        --text-highlight: #6db3f2;
+        --border-main: #3a3f48;
+        --border-subtle: #2f343d;
+        --shadow: rgba(0,0,0,0.3);
+        --th-bg: #1a2a3a;
       }
-      ::-webkit-scrollbar-thumb {
-        background: #3f3f46;
-        border-radius: 4px;
-        border: 1px solid #18181b;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #52525b;
-      }
-      
+
       body {
-        font-family: 'Chakra Petch', sans-serif;
-        background-color: #09090b;
-        color: #e4e4e7;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background-color: var(--bg-main);
+        color: var(--text-main);
+        transition: background-color 0.3s, color 0.3s;
       }
       .font-mono {
-        font-family: 'JetBrains Mono', monospace;
+        font-family: 'JetBrains Mono', Consolas, monospace;
       }
-      
+
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(100, 116, 139, 0.3);
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 49, 83, 0.4);
+      }
+
+      /* B&R Accent Bar */
+      .br-accent-bar {
+        height: 3px;
+        background: var(--accent-bar);
+      }
+
       /* 3D Transform Utilities */
       .perspective-1000 {
         perspective: 1000px;
@@ -47,27 +120,36 @@
       .rotate-y-180 {
         transform: rotateY(180deg);
       }
-      
-      /* Refined Hard Shadow (Precision Look) */
+
+      /* Precision Shadows */
       .shadow-precision {
-        box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.8);
+        box-shadow: 0 2px 8px var(--shadow);
       }
       .shadow-precision-sm {
-        box-shadow: 2px 2px 0px 0px rgba(0,0,0,0.8);
+        box-shadow: 0 1px 4px var(--shadow);
       }
       .shadow-precision-hover {
-        box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.6);
+        box-shadow: 0 4px 16px var(--shadow);
       }
-      
+
       /* Technical Grid Pattern */
       .bg-grid {
         background-size: 40px 40px;
         background-image:
+          linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+      }
+      [data-theme="dark"] .bg-grid {
+        background-image:
           linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
           linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
       }
-      
+
       .bg-grid-dots {
+        background-image: radial-gradient(rgba(0,49,83,0.1) 1px, transparent 1px);
+        background-size: 20px 20px;
+      }
+      [data-theme="dark"] .bg-grid-dots {
         background-image: radial-gradient(#3f3f46 1px, transparent 1px);
         background-size: 20px 20px;
       }

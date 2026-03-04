@@ -195,12 +195,12 @@ export const ImportModal: React.FC<ImportModalProps> = ({ onClose, onImport }) =
 
   return (
     <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 animate-in fade-in duration-200">
-      <div className="w-full max-w-5xl bg-[#18181b] border border-indigo-500/50 rounded-sm shadow-[0_0_60px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden relative h-[80vh]">
+      <div className="w-full max-w-5xl bg-[var(--bg-card)] border border-[var(--navy)]/50 rounded-sm shadow-[0_0_60px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden relative h-[80vh]">
         
         {/* Header */}
-        <div className="p-6 border-b border-white/10 bg-[#121212] flex justify-between items-center shrink-0">
+        <div className="p-6 border-b border-white/10 bg-[var(--bg-main)] flex justify-between items-center shrink-0">
           <div>
-            <div className="text-[10px] font-mono font-bold text-indigo-500 uppercase tracking-widest mb-1">
+            <div className="text-[10px] font-mono font-bold text-[var(--navy)] uppercase tracking-widest mb-1">
               Data Ingestion
             </div>
             <h2 className="text-xl font-bold text-white flex items-center gap-2">
@@ -214,9 +214,9 @@ export const ImportModal: React.FC<ImportModalProps> = ({ onClose, onImport }) =
 
         <div className="flex flex-1 overflow-hidden">
             {/* Left: Upload Control */}
-            <div className="w-1/3 bg-[#09090b] border-r border-white/10 p-6 flex flex-col gap-6">
+            <div className="w-1/3 bg-[var(--bg-main)] border-r border-white/10 p-6 flex flex-col gap-6">
                 
-                <div className="bg-indigo-500/10 border border-indigo-500/20 p-4 rounded">
+                <div className="bg-[rgba(0,49,83,0.1)] border border-[var(--navy)]/20 p-4 rounded">
                     <h3 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
                         <FileText size={14}/> CSV Specification
                     </h3>
@@ -228,7 +228,7 @@ export const ImportModal: React.FC<ImportModalProps> = ({ onClose, onImport }) =
                     </div>
                     <button 
                         onClick={downloadTemplate}
-                        className="w-full py-2 bg-[#18181b] hover:bg-white/5 border border-white/10 rounded text-[10px] font-bold text-white uppercase tracking-wider flex items-center justify-center gap-2 transition-colors"
+                        className="w-full py-2 bg-[var(--bg-card)] hover:bg-white/5 border border-white/10 rounded text-[10px] font-bold text-white uppercase tracking-wider flex items-center justify-center gap-2 transition-colors"
                     >
                         <Download size={12}/> Download Template
                     </button>
@@ -237,7 +237,7 @@ export const ImportModal: React.FC<ImportModalProps> = ({ onClose, onImport }) =
                 <div 
                     className={`
                         flex-1 border-2 border-dashed rounded-lg flex flex-col items-center justify-center text-center p-6 transition-all cursor-pointer
-                        ${isDragging ? 'border-indigo-500 bg-indigo-500/10' : 'border-white/10 hover:border-white/30 hover:bg-white/5'}
+                        ${isDragging ? 'border-[var(--navy)] bg-[rgba(0,49,83,0.1)]' : 'border-white/10 hover:border-white/30 hover:bg-white/5'}
                     `}
                     onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
                     onDragLeave={() => setIsDragging(false)}
@@ -252,7 +252,7 @@ export const ImportModal: React.FC<ImportModalProps> = ({ onClose, onImport }) =
                             </div>
                             <div className="text-sm font-bold text-white break-all">{file.name}</div>
                             <div className="text-xs text-neutral-500 mt-1">{(file.size / 1024).toFixed(1)} KB</div>
-                            <div className="text-[10px] text-indigo-400 mt-4 uppercase font-bold tracking-wider">Change File</div>
+                            <div className="text-[10px] text-[var(--navy)] mt-4 uppercase font-bold tracking-wider">Change File</div>
                         </>
                     ) : (
                         <>
@@ -266,8 +266,8 @@ export const ImportModal: React.FC<ImportModalProps> = ({ onClose, onImport }) =
             </div>
 
             {/* Right: Preview */}
-            <div className="flex-1 bg-[#121212] flex flex-col">
-                <div className="p-4 border-b border-white/10 flex justify-between items-center bg-[#18181b]">
+            <div className="flex-1 bg-[var(--bg-main)] flex flex-col">
+                <div className="p-4 border-b border-white/10 flex justify-between items-center bg-[var(--bg-card)]">
                     <div className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-3">
                         <span>Preview ({parsedData.length})</span>
                         {validationIssues > 0 && (
@@ -286,11 +286,11 @@ export const ImportModal: React.FC<ImportModalProps> = ({ onClose, onImport }) =
                         <table className="w-full text-left border-collapse">
                             <thead className="bg-black/40 text-[10px] text-neutral-500 font-mono uppercase sticky top-0 z-10 backdrop-blur-sm">
                                 <tr>
-                                    <th className="p-3 font-medium border-b border-white/10 bg-[#121212]">Title</th>
-                                    <th className="p-3 font-medium border-b border-white/10 bg-[#121212]">Category</th>
-                                    <th className="p-3 font-medium border-b border-white/10 bg-[#121212]">Sub-Cat</th>
-                                    <th className="p-3 font-medium border-b border-white/10 bg-[#121212]">Filename</th>
-                                    <th className="p-3 font-medium border-b border-white/10 bg-[#121212] text-right">Status</th>
+                                    <th className="p-3 font-medium border-b border-white/10 bg-[var(--bg-main)]">Title</th>
+                                    <th className="p-3 font-medium border-b border-white/10 bg-[var(--bg-main)]">Category</th>
+                                    <th className="p-3 font-medium border-b border-white/10 bg-[var(--bg-main)]">Sub-Cat</th>
+                                    <th className="p-3 font-medium border-b border-white/10 bg-[var(--bg-main)]">Filename</th>
+                                    <th className="p-3 font-medium border-b border-white/10 bg-[var(--bg-main)] text-right">Status</th>
                                 </tr>
                             </thead>
                             <tbody className="text-xs text-neutral-300 divide-y divide-white/5">
@@ -349,7 +349,7 @@ export const ImportModal: React.FC<ImportModalProps> = ({ onClose, onImport }) =
         </div>
 
         {/* Footer Actions */}
-        <div className="p-6 bg-[#18181b] border-t border-white/10 flex justify-between items-center shrink-0">
+        <div className="p-6 bg-[var(--bg-card)] border-t border-white/10 flex justify-between items-center shrink-0">
            <div className="text-xs text-neutral-500">
                {importing ? 'Processing batch insertion...' : validationIssues > 0 ? 'Invalid entries will be imported with default settings.' : 'Ready to commit data.'}
            </div>
@@ -367,7 +367,7 @@ export const ImportModal: React.FC<ImportModalProps> = ({ onClose, onImport }) =
                   className={`
                     px-6 py-2 rounded text-white transition-colors text-xs font-bold uppercase tracking-wider shadow-lg flex items-center gap-2
                     ${parsedData.length > 0 
-                        ? 'bg-indigo-600 hover:bg-indigo-500 cursor-pointer' 
+                        ? 'bg-[var(--navy)] hover:bg-[var(--navy)] cursor-pointer' 
                         : 'bg-neutral-700 text-neutral-500 cursor-not-allowed'}
                   `}
                >
